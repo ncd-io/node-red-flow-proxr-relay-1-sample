@@ -1,0 +1,100 @@
+[
+    {
+        "id": "67463481b9b1460f",
+        "type": "tab",
+        "label": "ProXR Relay 1 Sample",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "da4d32fea3549d4f",
+        "type": "ncd-gateway-node",
+        "z": "67463481b9b1460f",
+        "name": "",
+        "connection": "",
+        "unknown_devices": 0,
+        "outputs": 1,
+        "x": 870,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "63c63c84ae2b2beb",
+        "type": "function",
+        "z": "67463481b9b1460f",
+        "name": "R1 ON",
+        "func": "msg.payload = {};\nmsg.payload.data = [0xAA,0x07,0xBD,0x01,0xFD,0x01,0x01,0x01,0x00,0x6F];\nmsg.payload.address = \"00:13:a2:00:41:b1:72:47\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 200,
+        "wires": [
+            [
+                "da4d32fea3549d4f"
+            ]
+        ]
+    },
+    {
+        "id": "6950178309345a02",
+        "type": "inject",
+        "z": "67463481b9b1460f",
+        "name": "R1 ON",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 410,
+        "y": 200,
+        "wires": [
+            [
+                "63c63c84ae2b2beb"
+            ]
+        ]
+    },
+    {
+        "id": "740614ba0677e2e4",
+        "type": "function",
+        "z": "67463481b9b1460f",
+        "name": "R1 OFF",
+        "func": "msg.payload = {};\nmsg.payload.data = [0xAA,0x07,0xBD,0x01,0xFD,0x00,0x01,0x01,0x00,0x6E];\nmsg.payload.address = \"00:13:a2:00:41:b1:72:47\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 240,
+        "wires": [
+            [
+                "da4d32fea3549d4f"
+            ]
+        ]
+    },
+    {
+        "id": "35f49ba3b923a42f",
+        "type": "inject",
+        "z": "67463481b9b1460f",
+        "name": "R1 OFF",
+        "props": [],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 410,
+        "y": 240,
+        "wires": [
+            [
+                "740614ba0677e2e4"
+            ]
+        ]
+    }
+]
